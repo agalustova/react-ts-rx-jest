@@ -1,23 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
+import clsx from 'clsx';
+import { useSensorsData } from 'hooks';
+import ParameterRow from 'components/ParameterRow';
 import './App.css';
 
-function App() {
+function App(): React.ReactElement {
+  const {
+    loading,
+    temperature,
+    pressure,
+    humidity,
+  } = useSensorsData();
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header className={clsx('App-header', { 'App--loading': loading })}>
+        {loading && (<div>Data will be available when sensors are prepared.</div>)}
+        {!loading && (
+          <div className="characteristics">
+            <ParameterRow title="Temperature :" value={temperature} />
+            <ParameterRow title="Air pressure :" value={pressure} />
+            <ParameterRow title="Humidity :" value={humidity} />
+          </div>
+        )}
       </header>
     </div>
   );

@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App renders properly 1`] = `
+<div
+  className="App"
+>
+  <header
+    className="App-header App--loading"
+  >
+    <div>
+      Data will be available when sensors are prepared.
+    </div>
+  </header>
+</div>
+`;
+
+exports[`ParameterRow renders properly 1`] = `
+<div
+  className="characteristic"
+>
+  <div
+    className="characteristic-name"
+  >
+    Humidity :
+  </div>
+  <div>
+    68
+  </div>
+</div>
+`;
